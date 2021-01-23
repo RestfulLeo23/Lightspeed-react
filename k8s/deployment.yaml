@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lightspeed-react
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lightspeed-react
+  template:
+    metadata:
+      labels:
+        app: lightspeed-react
+    spec:
+      containers:
+        - name: lightspeed-react
+          image: restfulleo/lightspeed-react:latest
+          ports:
+            - containerPort: 80
+          env:
+            - name: WEB_RTC_ADDRESS
+              value: rtc.rathabitat.club
+          resources:
+            limits:
+              memory: 512Mi
+              cpu: 100m
+            requests:
+              memory: 256Mi
+              cpu: 100m
+      imagePullSecrets:
+        - name: regcred

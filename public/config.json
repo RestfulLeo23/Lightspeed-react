@@ -1,3 +1,3 @@
 {
-  "wsUrl": "ws://stream.gud.software:8080/websocket"
+  "wsUrl": "wss://stream.gud.software:8080/websocket"
 }
